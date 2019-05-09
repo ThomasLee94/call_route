@@ -34,6 +34,7 @@ def route_cost_check(phone_num: str, route_cost_csv) -> int:
                 # look up cost in dict for constant look up time
                 cost = prefix_and_route_costs[prefix]
         counter += 1
+    # case: prefix not in dict
     if not cost:
         return 'prefix not in dict'
     return cost
