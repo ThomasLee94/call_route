@@ -1,7 +1,7 @@
-def find_all_indexes(text, pattern):
+def find_all_prefixes(text, pattern):
     """Return a list of all occurrences of pattern in text,
     or an empty list if none found."""
-    
+
     assert isinstance(text, str), 'text is not a string: {}'.format(text)
     assert isinstance(pattern, str), 'pattern is not a string: {}'.format(text)
 
