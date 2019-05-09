@@ -18,7 +18,7 @@ def route_cost_check(phone_num: str, route_cost_csv) -> str:
     prefix_and_route_costs = read_str(route_cost_csv) 
     cost = None
     # arbitrary large value for beginning the loop
-    old_offset = 99999
+    old_offset = 2 ** 1000
 
     for prefix in prefix_and_route_costs.keys():
         # found = find_index(phone_num, prefix)
