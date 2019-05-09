@@ -13,16 +13,16 @@ def read_str(file):
             dict[key] = value
     return dict
 
-def route_cost_check(phone_num: str, route_cost_csv) -> int:
+def route_cost_check(phone_num: str, route_cost_csv) -> str:
+    '''cost variable updates as we iteratave over the dicitonary according too
+    matching prefix if it is the lowest offset'''
+
     # This returns a dictionary of the prefixes and the cost as (key, value) pairs
     prefix_and_route_costs = read_str(route_cost_csv) 
-    '''cost variable updates as we iteratave over the dicitonary according too
-        matching prefix if it is the lowest offset'''
     cost = None
-    # counter to have end state if prefix is not found in dict
-    counter = 0 
     # arbitrary large value for beginning the loop
     old_offset = 99999
+
     for prefix in prefix_and_route_costs.keys():
         # found = find_index(phone_num, prefix)
         found = contains(phone_num, prefix)
@@ -34,9 +34,11 @@ def route_cost_check(phone_num: str, route_cost_csv) -> int:
                 # look up cost in dict for constant look up time
                 cost = prefix_and_route_costs[prefix]
         counter += 1
+
     # case: prefix not in dict
     if not cost:
         return 'prefix not in dict'
+
     return cost
 
     
