@@ -34,6 +34,6 @@ def route_cost_check(phone_num: str, route_cost_csv) -> int:
         
         
        
-# print(route_cost_check('+8614298961866', 'route-costs-35000.txt'))
+print(route_cost_check('+8614298961866', 'route-costs-35000.txt'))
 print(route_cost_check('+1276409','route-costs-35000.txt'))
 
