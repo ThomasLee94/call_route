@@ -2,7 +2,13 @@
 from string import contains
 from find_all_prefixes import find_index
 
+# ! Overall runtime = O(n)
+# ! Overall memory = O(n)
+
 def read_str(file):
+    # ! Runtime = O(n), n being the number entries in file
+    # ! Memory = O(n), n being the number of entries in file
+
     dict = {}
     with open(file) as f:
         for line in f:
@@ -20,28 +26,23 @@ def route_cost_check(phone_num: str, route_cost_csv) -> str:
     # arbitrary large value for beginning the loop
     old_offset = 2 ** 1000
 
+    # loop through prefix keys in dict
     for prefix in prefix_and_route_costs.keys():
-        # found = find_index(phone_num, prefix)
+        # ! Runtime = O(n), n being the number of keys in prefix dict
         found = contains(phone_num, prefix)
         if found:
             # the difference between the length of the phone number and the prefix
             offset = len(phone_num) - len(prefix)
             # the lowest difference is the 'correct' match
             if offset <= old_offset:
-                # look up cost in dict for constant look up time
+                # ! Runtime - O(1)
                 cost = prefix_and_route_costs[prefix]
-        counter += 1
 
     # case: prefix not in dict
     if not cost:
         return 'prefix not in dict'
 
     return cost
-
-    
-        
-
        
 print(route_cost_check('+34924199345454', 'route-costs-600.txt'))
-# print(route_cost_check('+1276409','route-costs-600.txt'))
 
