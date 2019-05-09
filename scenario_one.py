@@ -25,15 +25,13 @@ def route_cost_check(phone_num: str, route_cost_csv) -> int:
     # open csv file
     prefix_and_route_costs = read_str(route_cost_csv)
     
-    # loop through dict
-    for prefix in prefix_and_route_costs:
-        if prefix in prefix_and_route_costs:
-            return prefix_and_route_costs[prefix]
-        else:
-            return "no price available"
+    # mody find_all_index function to return prefixes instead of indexes for constant lookup in our dict
+    # invert our loop, compare our phone_num to all prefixes
+        # decrement the phone_num by 1 for every loop and save all matches
+        # look up cost using saved prefixes in our dictionary 
+        # return cost
+    
         
-        
-       
 # print(route_cost_check('+8614298961866', 'route-costs-35000.txt'))
 print(route_cost_check('+1276409','route-costs-35000.txt'))
 
