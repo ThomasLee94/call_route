@@ -1,14 +1,6 @@
-# read the file containing the prefixes with costs
 
-# using the given phone number, loop through the file containing the prefixes
-    # return the price that is attached to the prefiex that matches the phone number 
-
-import os 
-from string import find_all_indexes, contains
-
-# # Relative file path
-# phone_nums_path = os.path.expanduser('data_csv/phone-numbers-10.txt')
-# route_cost_path = os.path.expanduser('data_csv/route-costs-10.txt')
+from string import contains
+from find_all_prefixes import find_index
 
 def read_str(file):
     # return contents in file as a list [['prefix, cost'],['prefix, cost']...]
@@ -22,18 +14,34 @@ def read_str(file):
     return dict
 
 def route_cost_check(phone_num: str, route_cost_csv) -> int:
-    # open csv file
-    prefix_and_route_costs = read_str(route_cost_csv)
-    
-    # mody find_all_index function to return prefixes instead of indexes for constant lookup in our dict
-    # invert our loop, compare our phone_num to all prefixes
-        # decrement the phone_num by 1 for every loop and save all matches
-        # look up cost using saved prefixes in our dictionary 
-        # return cost
+    # This returns a dictionary of the prefixes and the cost as (key, value) pairs
+    prefix_and_route_costs = read_str(route_cost_csv) 
+    '''cost variable updates as we iteratave over the dicitonary according too
+        matching prefix if it is the lowest offset'''
+    cost = None
+    # counter to have end state if prefix is not found in dict
+    counter = 0 
+    # arbitrary large value for beginning the loop
+    old_offset = 99999
+    for prefix in prefix_and_route_costs.keys():
+        # found = find_index(phone_num, prefix)
+        found = contains(phone_num, prefix)
+        if found:
+            # the difference between the length of the phone number and the prefix
+            offset = len(phone_num) - len(prefix)
+            # the lowest difference is the 'correct' match
+            if offset <= old_offset:
+                # look up cost in dict for constant look up time
+                cost = prefix_and_route_costs[prefix]
+        counter += 1
+    if not cost:
+        return 'prefix not in dict'
+    return cost
+
     
         
 
        
-print(route_cost_check('+8614298961866', 'route-costs-35000.txt'))
-print(route_cost_check('+1276409','route-costs-35000.txt'))
+print(route_cost_check('+34924199345454', 'route-costs-600.txt'))
+# print(route_cost_check('+1276409','route-costs-600.txt'))
 
