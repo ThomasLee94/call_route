@@ -3,9 +3,6 @@ from string import contains
 from find_all_prefixes import find_index
 
 def read_str(file):
-    # return contents in file as a list [['prefix, cost'],['prefix, cost']...]
-    # return [line.strip().split(",") for line in open(file)]
-
     dict = {}
     with open(file) as f:
         for line in f:
