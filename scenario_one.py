@@ -39,9 +39,9 @@ def route_cost_check(phone_num: str, route_cost_csv) -> str:
 
     # case: prefix not in dict
     if not cost:
-        return 'prefix not in dict'
+        return None
 
     return cost
        
-print(route_cost_check('+34924199345454', 'route-costs-600.txt'))
+# print(route_cost_check('+34924199345454', 'route-costs-600.txt'))
 
