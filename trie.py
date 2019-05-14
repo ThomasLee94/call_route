@@ -6,6 +6,10 @@ class PrefixNode:
         self.children_list = [None]*10
         self.cost = None
 
+    def __repr__(self):
+        """Return a string representation of this binary tree node."""
+        return 'BinaryTreeNode({!r})'.format(self.children_list)
+
     def is_leaf(self)->bool:
         ''' Return True if this node is a leaf'''
         for node in self.children_list:
@@ -25,6 +29,10 @@ class PrefixTree:
     def __init__(self):
         ''' init trie tree '''
         self.root = PrefixNode()
+
+    def __repr__(self):
+        """Return a string representation of this binary search tree."""
+        return 'BinarySearchTree({} nodes)'.format(self.root)
 
     def insert(self, prefix: str, cost: str):
         ''' inserts items in trie tree '''
@@ -50,12 +58,12 @@ class PrefixTree:
 
     def search(self, phone_number: str) -> str:
 
-    ''' Search through prefix tree to find cheapest assoicated
-    cost with phone number '''
+        ''' Search through prefix tree to find cheapest assoicated
+        cost with phone number '''
 
         # ignore '+' in phone number
-        if phone_number[0] == '+': 
-            phone_number = phone_number[1:]
+        # if phone_number[0] == '+': 
+        #     phone_number = phone_number[1:]
 
         node = self.root
         cost = 0
@@ -71,7 +79,7 @@ class PrefixTree:
                 if node.cost is not None:
                     # update cost
                     cost = node.cost
-                    
+
         # returning the most up-to-date cost
         if node.cost is not None:
             return node.cost
