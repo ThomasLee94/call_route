@@ -82,8 +82,8 @@ class PrefixTree:
 
         # returning the most up-to-date cost
         if node.cost is not None:
-            return node.cost
+            return (phone_number, node.cost)
         else:
-             return cost
+             return (phone_number, cost)
 
 

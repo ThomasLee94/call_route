@@ -28,8 +28,12 @@ def get_prefix_tree(n: int):
 
 def find_cost(phone_nums):
 	# search our pickled prefix tree
-	for numbers in phone_nums:
-			prefix_tree.search(numbers)
+	prefix_tree = get_prefix_tree(35000)
+	output_cost = list()
+
+	for number in phone_nums:
+		output_cost.append(prefix_tree.search(number))
+	return output_cost
 
 def compare_costs(correct_file, results_file):
 	correct_costs = (l.split(",") for l in correct_file.read().splitlines())
@@ -59,4 +63,6 @@ if __name__ == '__main__':
 	#prefix_tree = build_prefix_tree('route-costs-35000.txt')
 	#pickle.dump(prefix_tree, open("trie-35000.pickle", "wb"))
 
-	compare_costs(open('route-costs-35000.txt'), open('results-35000.txt'))
+	# compare_costs(open('route-costs-35000.txt'), open('results-35000.txt'))
+	phone_nums = (n[0] for n in read_str_list('phone-numbers-10000.txt'))
+	print(find_cost(phone_nums))
