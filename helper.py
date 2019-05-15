@@ -1,20 +1,20 @@
-def read_str_dict(file):
+def read_str_dict(file_path):
     # ! Runtime = O(n), n being the number entries in file
     # ! Memory = O(n), n being the number of entries in file
 
     ''' Returns prefix and cost as a dict '''
 
     dict = {}
-    with open(file) as f:
+    with open(file_path) as f:
         for line in f:
             (key, value) = line.strip().split(',')
             dict[key] = value
     return dict
 
-def read_str_list(file):
-    with open(file) as f:
+def read_str_list(file_path):
+    with open(file_path) as f:
         # generator for [(prefix, cost),(prefix,cost)...] - does not get built immediately 
-        lines = (l.split(',') for l in f.readlines())
+        lines = (l.split(',') for l in f.read().splitlines())
     return lines
 
 def contains(text: str, pattern: str) -> bool:

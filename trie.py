@@ -62,8 +62,8 @@ class PrefixTree:
         cost with phone number '''
 
         # ignore '+' in phone number
-        # if phone_number[0] == '+': 
-        #     phone_number = phone_number[1:]
+        if phone_number[0] == '+': 
+            phone_number = phone_number[1:]
 
         node = self.root
         cost = 0
