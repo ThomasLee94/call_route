@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-Assign phone number and file path to rout-costs-<>.txt
+# Assign phone number and file path to rout-costs-<>.txt
 PHONENUM=${1?Error: no phone number given}
 FILE=${2?Error: file path not given}
 grep "${PHONENUM:0:9}" $FILE

@@ -5,7 +5,6 @@ from os.path import isfile
 
 def build_prefix_tree(file_path):
 	''' Builds a prefix tree according to input data '''
-
 	# init prefix tree
 	prefix_tree = PrefixTree()
 
@@ -36,6 +35,8 @@ def find_cost(phone_nums):
 	return output_cost
 
 def compare_costs(correct_file, results_file):
+	''' psuedo test function '''
+
 	correct_costs = (l.split(",") for l in correct_file.read().splitlines())
 	predicted_costs = (l.split(",") for l in results_file.read().splitlines())
 
