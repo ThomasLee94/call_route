@@ -3,14 +3,14 @@ from helper import read_str_list
 import pickle
 from os.path import isfile
 
-def build_prefix_tree(file):
+def build_prefix_tree(file_path):
 	''' Builds a prefix tree according to input data '''
 
 	# init prefix tree
 	prefix_tree = PrefixTree()
 
 	# get prefix and cost from generator as list of tuples
-	lines = read_str_list(file)
+	lines = read_str_list(file_path)
 
 	for prefix, price in lines:
 		prefix_tree.insert(prefix[1:], float(price))
