@@ -4,8 +4,6 @@
 - Thomas Lee & Ryan Smith
 - Acknowledgments to @Connor-Cahill & @IkeyBenz for their help!
 
-# Call Routing Project
-
 ## Description
 
 This project is inspired by a real-world problem at a telephony API company – let's call it *Teleo*.
